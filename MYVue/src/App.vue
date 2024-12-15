@@ -1,59 +1,25 @@
-<script>
-import { ref } from 'vue'
+<!-- 
+理解父组件和子组件：
+我们将某段代码封装成一个组件，而这个组件又在另一个组件中引入，
+而引入该封装的组件的文件叫做父组件，被引入的组件叫做子组件。 
+-->
 
-export default {
-  setup() {
-    console.log("这是SetUp函数,在before之前");
-    const count = ref(1)
-    const addCount = () => {
-      count.value++
-    }
-    // 需要返回不然出错
-    return {
-      count,
-      addCount
-    }
-  },
-  beforeCreate() {
-    console.log('这是BeforeCreate函数');
-  }
+<script setup>
+import helloComponents from './components/HelloWorld.vue'
+import { ref, onBeforeMount, onMounted } from 'vue'
+const text = ref('good')
+
+const logMsg = (val) => {
+  console.log("父组件接收:" + val);
+
 }
-
 </script>
 
 <template>
-  <div class="box">
-    <button class="my-button" @click="addCount">
-      result{{ count }}
-    </button>
+  <div>
+    父子传参--->控制台
+    <helloComponents :msg="text" @send-example="logMsg"> </helloComponents>
   </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
