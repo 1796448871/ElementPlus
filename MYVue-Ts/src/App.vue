@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import{ref,reactive} from 'vue'
 import Components01 from './components/Components01.vue';
+import axios from 'axios';
 
 // 注意这种写法
 const components=ref<InstanceType<typeof Components01>|null>(null)
@@ -18,6 +19,8 @@ const appLog=()=>{
         components.value.logMessage()
     }
 }
+
+// axios
 </script>
 
 <style scoped>
