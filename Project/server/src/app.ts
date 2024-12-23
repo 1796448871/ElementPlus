@@ -12,14 +12,11 @@ app.use(cors());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/articles', articleRoutes);
-app.use('/api/exchangeRates', exchangeRateRoutes); 
+app.use('/api/exchangeRates', exchangeRateRoutes);
 
 const startServer = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/currencyeg', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    } as ConnectOptions);
+    await mongoose.connect('mongodb://8.138.23.54:27017/currencyeg');
     console.log('Connected to MongoDB');
 
     app.listen(3000, () => {
