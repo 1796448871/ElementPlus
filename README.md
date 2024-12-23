@@ -22,3 +22,15 @@ README.md：如果index.html不存在，Markdown文件将被渲染为HTML显示�
 然后就可以npm run dev
 但是注意,后端似乎有问题,出一次错误可能导致服务器无法访问？
 ## client
+
+在 client 上一级目录, 如 myApp 输入(就可以自动创建出client文件夹)
+
+```bash
+npm create vite@latest client -- --template vue-ts
+```
+
+然后`cd client`, 并且输入
+
+```bash
+npm i
+```

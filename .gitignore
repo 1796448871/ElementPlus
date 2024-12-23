@@ -1,1 +1,3 @@
 Project/server/node_modules
+
+# 一个项目可以同时被多个.gitignore管理
