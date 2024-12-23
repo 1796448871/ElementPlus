@@ -17,6 +17,7 @@ app.use('/api/exchangeRates', exchangeRateRoutes);
 
 const startServer = async () => {
   // 8.138.23.54
+  // 注意,挂梯子和换wifi都有可能导致自身IP不同,导致被墙
   try {
     await mongoose.connect('mongodb://8.138.23.54:27017/currencyeg');
     console.log('Connected to MongoDB');

@@ -17,5 +17,8 @@ README.md：如果index.html不存在，Markdown文件将被渲染为HTML显示�
 测试CodeSpaces,云开发,Vscode-Codespaces没网打不开
 
 # Project使用
-新的环境中，需要先再server文件夹中 npm i
-然后就可以npm
+## server
+新的环境中，需要先再到server文件夹中 npm i
+然后就可以npm run dev
+但是注意,后端似乎有问题,出一次错误可能导致服务器无法访问？
+## client
