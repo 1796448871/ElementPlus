@@ -3,8 +3,6 @@ import HomeView from '../views/HomeView.vue';
 import CurrencyExchangeView from '../views/CurrencyExchangeView.vue';
 import NewsView from '../views/NewsView.vue';
 import NewsDetailView from '../views/NewsDetailView.vue';
-import Login from '../components/Login.vue';
-import Register from '../components/Register.vue';
 import type { RouteRecordRaw } from 'vue-router'; // 新的写法？
 
 
@@ -13,8 +11,6 @@ const routes: RouteRecordRaw[] = [
   { path: '/exchange', name: 'CurrencyExchange', component: CurrencyExchangeView },
   { path: '/news', name: 'News', component: NewsView },
   { path: '/news/:id', name: 'NewsDetail', component: NewsDetailView },
-  { path: '/login', name: 'Login', component: Login },
-  { path: '/register', name: 'Register', component: Register },
 ];
 
 const router = createRouter({
