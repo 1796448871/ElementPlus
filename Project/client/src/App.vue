@@ -36,7 +36,7 @@ watch(route, (newRoute) => {
 
 const handleSelect = (key: string) => {
   if ( key === 'logout') {
-    authStore.logout();
+    // authStore.logout();
     router.push({ name: 'Home' });
   } else {
     router.push({ name:  key.charAt(0).toUpperCase() +  key.slice(1) });

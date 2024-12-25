@@ -23,6 +23,11 @@ README.md：如果index.html不存在，Markdown文件将被渲染为HTML显示�
 但是注意,后端似乎有问题,出一次错误可能导致服务器无法访问？
 ## client
 
+### 代码提示缺失?
+安装下面的包,能解决部分问题
+```bash
+npm install typescript @types/node @types/axios --save-dev
+```
 在 client 上一级目录, 如 myApp 输入(就可以自动创建出client文件夹)
 
 ```bash
