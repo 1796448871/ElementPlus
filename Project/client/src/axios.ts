@@ -1,3 +1,4 @@
+// 当别的文件调用这个axios的时候,就可以方便的读取其中的参数
 import axios from "axios";
 const instance = axios.create({
   baseURL: "http://localhost:3000/api"
