@@ -1,3 +1,5 @@
+# 一个项目可以同时被多个.gitignore管理
 Project/server/node_modules
 
-# 一个项目可以同时被多个.gitignore管理
+#这个文件是环境变量读取用的,报名你的服务器数据库密钥,按需创建 
+Project/server/.env
