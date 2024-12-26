@@ -9,23 +9,17 @@ export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = computed(() => !!token.value);
 
   const login = async (username: string, password: string) => {
-    try {
-      const response = await axios.post('/auth/login', { username, password });
-      token.value = response.data.token;
-      localStorage.setItem('token', token.value || '');
-    } catch (error) {
-      console.error('Login error:', error);
-    }
+    // 不用try catch捕获,让调用(login.vue 32 )的位置捕获,方便其catch相应
+    const response = await axios.post('/auth/login', { username, password });
+    token.value = response.data.token;
+    localStorage.setItem('token', token.value || '');
+
   };
 
   const register = async (username: string, password: string) => {
-    try {
-      const response = await axios.post('/auth/register', { username, password });
-      token.value = response.data.token;
-      localStorage.setItem('token', token.value || '');
-    } catch (error) {
-      console.error('Register error:', error);
-    }
+    const response = await axios.post('/auth/register', { username, password });
+    token.value = response.data.token;
+    localStorage.setItem('token', token.value || '');
   };
 
   const logout = () => {
