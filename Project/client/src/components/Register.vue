@@ -15,8 +15,7 @@
   <script setup lang="ts">
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import axios from '../axios';
-  // import { useAuthStore } from '../store/auth';
+  import { useAuthStore } from '../store/auth';
   import { ElMessage } from 'element-plus';
   
   const form = ref({
@@ -24,25 +23,16 @@
     password: '',
   });
   
-  // const authStore = useAuthStore();
+  const authStore = useAuthStore();
   const router = useRouter();
   
-
-
-  const token =ref<string|null>(localStorage.getItem('token'))
-  // 添加async异步还有一层原因和promise有关
+  
   const register = async () => {
     try {
-    const username=  form.value.username
-    const password=  form.value.password
-      const res = await axios.post('/auth/register', {username,password})
-      token.value=res.data.token
-      // 还是要存储到localStorage中的
-      localStorage.setItem('token',token.value||'')
-
+      await authStore.register(form.value.username, form.value.password);
       router.push({ name: 'News' });
     } catch {
-      ElMessage.error('注册失败，请检查用户名和密码。');
+      ElMessage.error('注册失败，请重试。');
     }
   };
   </script>
