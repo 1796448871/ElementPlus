@@ -1,6 +1,6 @@
 # 项目介绍
 ## ElementPlus
-去视频 BV1c142117Fz 学习Vue—ts开发
+参考视频 BV1c142117Fz 学习Vue—ts开发
 MYVue是VUE3开发
 MYVue-Ts是Vue和Ts开发
 
@@ -46,3 +46,6 @@ npm create vite@latest client -- --template vue-ts
 ```bash
 npm i
 ```
+
+
+# 暂无打包
