@@ -19,8 +19,8 @@ const startServer = async () => {
   // 8.138.23.54
   // 注意,挂梯子和换wifi都有可能导致自身IP不同,导致被墙
   try {
-    // 'mongodb://root:179644@8.138.23.54:27017/currencyeg?authSource=admin'
-    await mongoose.connect('mongodb://username:password@127.0.0.1:27017/currencyeg?authSource=admin')
+    // 
+    await mongoose.connect('mongodb://root:179644@8.138.23.54:27017/currencyeg?authSource=admin')
     console.log('Connected to MongoDB');
 
     app.listen(3000, () => {
