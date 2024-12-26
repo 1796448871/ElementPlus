@@ -5,7 +5,7 @@
         <el-card v-for="article in articles" :key="article._id" class="article-card">
           <h2>{{ article.title }}</h2>
           <p>{{ article.preview }}</p>
-          <el-button text >阅读更多</el-button>
+          <el-button text @click="viewDetail(article._id)">阅读更多</el-button>
         </el-card>
       </div>
       <div v-else class="no-data">No data</div>
@@ -15,18 +15,21 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-// import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { ElMessage } from 'element-plus';
 import axios from '../axios';
+import { useAuthStore } from '../store/auth';
 
 interface Article {
-    _id: string;
-    title: string;
-    preview: string;
-    content: string;
+  _id: string;
+  title: string;
+  preview: string;
+  content: string;
 }
 
 const articles = ref<Article[]>([]);
-// const router = useRouter();
+const router = useRouter();
+const authStore = useAuthStore();
 
 const fetchArticles = async () => {
   try {
@@ -37,13 +40,16 @@ const fetchArticles = async () => {
   }
 };
 
-// const viewDetail = (id: string) => {
-//   if (!authStore.isAuthenticated) {
-//     ElMessage.error('请先登录后再查看');
-//     return;
-//   }
-//   router.push({ name: 'NewsDetail', params: { id } });
-// };
+const viewDetail = (id: string) => {
+  console.log("authStore.isAuthenticated");
+  console.log(authStore.isAuthenticated);
+
+  if (!authStore.isAuthenticated) {
+    ElMessage.error('请先登录后再查看');
+    return;
+  }
+  router.push({ name: 'NewsDetail', params: { id } });
+};
 
 onMounted(fetchArticles);
 </script>

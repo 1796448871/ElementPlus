@@ -1,14 +1,44 @@
 <template>
-    <div>
-
-    </div>
+  <el-container>
+    <el-main>
+      <el-card v-if="article" class="article-detail">
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.content }}</p>
+      </el-card>
+      <div v-else class="no-data">文章不存在</div>
+    </el-main>
+  </el-container>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import axios from '../axios';
 
+interface Article {
+  _id: string;
+  title: string;
+  preview: string;
+  content: string;
+}
+
+const article = ref<Article | null>(null);
+const route = useRoute();
+
+const fetchArticle = async () => {
+  const { id } = route.params;
+  try {
+    const response = await axios.get<Article>(`/articles/${id}`);
+    article.value = response.data;
+  } catch (error) {
+    console.error('Failed to load article:', error);
+  }
+};
+
+onMounted(fetchArticle);
 </script>
 
-<style  scoped>
+<style scoped>
 .article-detail {
   margin: 20px 0;
 }

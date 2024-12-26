@@ -6,9 +6,9 @@
         <el-menu-item index="home">首页</el-menu-item>
         <el-menu-item index="currencyExchange">兑换货币</el-menu-item>
         <el-menu-item index="news">查看新闻</el-menu-item>
-        <el-menu-item index="login">登录</el-menu-item>
-        <el-menu-item index="register">注册</el-menu-item>
-        <el-menu-item index="logout">退出</el-menu-item>
+        <el-menu-item index="login" v-if="!authStore.isAuthenticated">登录</el-menu-item>
+        <el-menu-item index="register" v-if="!authStore.isAuthenticated">注册</el-menu-item>
+        <el-menu-item index="logout" v-if="authStore.isAuthenticated">退出</el-menu-item>
       </el-menu>
     </el-header>
     <el-main>
@@ -19,9 +19,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref,watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useAuthStore } from './store/auth'
 
+const authStore = useAuthStore();
 // router 是路由实例，可以用来编程式地导航。
 const router = useRouter()
 // route 是当前路由信息对象，包含了当前路由的所有信息。
@@ -35,11 +37,11 @@ watch(route, (newRoute) => {
 })
 
 const handleSelect = (key: string) => {
-  if ( key === 'logout') {
-    // authStore.logout();
+  if (key === 'logout') {
+    authStore.logout();
     router.push({ name: 'Home' });
   } else {
-    router.push({ name:  key.charAt(0).toUpperCase() +  key.slice(1) });
+    router.push({ name: key.charAt(0).toUpperCase() + key.slice(1) });
   }
 };
 
