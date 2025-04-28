@@ -33,7 +33,13 @@ $(function () {
             "background-size": "cover",
             "position": "relative !important"
         });
-        $(".others-section").css("background", "url(" + config.url[3] + ")");
+        $(".others-section").css({
+            "background": "url(" + config.url[3] + ") no-repeat fixed center",
+            "background-size": "cover"
+        });        /* no-repeat：禁止图片重复平铺。
+        fixed：背景图片相对于视口固定（滚动页面时图片不动）。
+        center：图片在水平和垂直方向居中。
+        cover：保持图片原始比例缩放，完全覆盖容器区域（可能裁剪图片边缘）。 */
         $(".desc").html(config.skills_description);
         //------E-------
 
