@@ -7,7 +7,7 @@ var config = {
     email: "1796448871@qq.com",
     address: "现居福建省福州市",
     qq: "1796448871",
-    log: "仍在路上~",
+    log: "Welcome~",
     excpect_work: "Java/Go 后端开发",
 
 
