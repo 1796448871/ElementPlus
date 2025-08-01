@@ -53,7 +53,7 @@ $(function () {
                     "    <div class=\"pro-bar\">\n" +
                     "        <small class=\"progress_bar_title\">\n" +
                     skill_name +
-                    "            <span class=\"progress_number\">%</span>\n" +
+                    "            <span class=\"progress_number\">" + num + "%</span>\n" +
                     "        </small>\n" +
                     "        <span class=\"progress-bar-inner p-a\"\n" +
                     "              style=\"background-color:" + color + "; width:" + num + "%;\" data-value=\"" + num + "\"\n" +

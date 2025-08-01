@@ -187,7 +187,7 @@ html {
     color: rgba(255, 255, 255, 0.8);
     font-size: smaller;
     font-family: serif, '宋体';
-    display: none;
+    display: block;
 }
 
 
